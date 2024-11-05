@@ -10,7 +10,7 @@ COPY requirements.txt .
 
 # Instalar las dependencias necesarias para mysqlclient y pkg-config
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends gcc pkg-config libmariadb-dev python3-dev && \
+    apt-get install -y --no-install-recommends gcc pkg-config libmariadb-dev python3-dev libpq-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
