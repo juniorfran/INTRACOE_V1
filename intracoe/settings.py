@@ -28,6 +28,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Security & HTTPS settings
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = False
+
+CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+    'https://intracoe.incoe.cloud',
+    'http://intracoe.incoe.cloud',
+    'https://www.intracoe.incoe.cloud',
+    'http://www.intracoe.incoe.cloud',
+    'https://0.0.0.0/',
+    'https://0.0.0.0:8000/',
+    'http://172.17.0.2/',
+    'http://0.0.0.0/',
+    ]
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail.grupoincoe.com'
 EMAIL_PORT = 465
