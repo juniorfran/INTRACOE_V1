@@ -100,7 +100,7 @@
             position: relative;
             bottom: 10px;
             right: 20px;
-            width: 250px; /* Ajusta el tamaño según sea necesario */
+            width: 325px; /* Ajusta el tamaño según sea necesario */
             opacity: 0.8; /* Ajusta la opacidad si deseas un efecto más tenue */
             
         }
@@ -121,10 +121,10 @@
                 <br>
                 <strong>Código de Empleado:</strong> {{ empleado.codigo_empleado }}<br>
                 <strong>Email:</strong> {{ empleado.email }}<br>
-                <strong>Teléfono:</strong> {{ empleado.num_telefono }}<br>
+                <strong>Teléfono:</strong> {{ empleado.num_telefono }}
                 <strong>DUI::</strong> {{ empleado.dui }}<br>
             </ul>
-            <strong>Días Laborados:</strong> {{ boleta.dias_laborados }}<br>
+            <strong>Días Laborados:</strong> {{ boleta.dias_laborados }}
             <strong>Periodo:</strong> {{ boleta.fecha_inicio|date:"d-m-y" }} || {{ boleta.fecha_fin|date:"d-m-y" }}<br>
         </div>
     </div>
@@ -154,8 +154,8 @@
                         <li><strong>Descuento AFP:</strong> ${{ boleta.descuento_afp }}</li>
                         <li><strong>Descuento ISSS:</strong> ${{ boleta.descuento_isss }}</li>
                         <li><strong>Descuento Renta:</strong> ${{ boleta.descuento_renta }}</li>
-                        <li><strong>Otros Descuentos 1:</strong> ${{ boleta.otro_descuento1 }}</li>
-                        <li><strong>Otros Descuentos 2:</strong> ${{ boleta.otro_descuento2 }}</li>
+                        <li><strong>Descuentos Externos:</strong> ${{ boleta.otro_descuento1 }}</li>
+                        <li><strong>Descuentos Internos:</strong> ${{ boleta.otro_descuento2 }}</li>
                         <hr>
                         <strong><h3>Total Descuentos:</h3></strong> <h3>${{ boleta.total_descuentos }}</h3>
                     </ul>
@@ -164,9 +164,8 @@
         </table>
     </div>
     
-
     <!-- Tabla con la firma y el total a recibir -->
-    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: none;">
+    <table style="width: 100%; margin-top: 5px; border-collapse: collapse; border: none;">
         <tr>
             <td style="text-align: center; border: none;">
                 <img src="media/firma.png" alt="Firma" class="firma" style="max-width: 100%; height: auto;">

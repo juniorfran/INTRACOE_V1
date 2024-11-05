@@ -14,7 +14,7 @@
             </div>
             <div class="card-body">
                 <h4 class="card-title text-center">Estimado/a {{ empleado.nombre }} {{ empleado.apellido }}</h4>
-                <p class="card-text text-center">Le enviamos su boleta de pago correspondiente:</p>
+                <p class="card-text text-center">Le enviamos su boleta de pago correspondiente: {{ boleta.fecha_inicio|date:"d-m-y" }} || {{ boleta.fecha_fin|date:"d-m-y" }}</p>
 
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between">
@@ -34,6 +34,12 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span><strong>Descuento Renta:</strong></span> <span>{{ boleta.descuento_renta }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span><strong>Descuentos Externos:</strong></span> <span>{{ boleta.otro_descuento1 }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span><strong>Descuentos Internos:</strong></span> <span>{{ boleta.otro_descuento2 }}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span><strong>Total de Descuentos:</strong></span> <span>{{ boleta.total_descuentos }}</span>
