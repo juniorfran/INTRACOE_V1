@@ -103,27 +103,20 @@ WSGI_APPLICATION = 'intracoe.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default1': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
 
-    'default1': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'grupoinc_intracoe',
-        'USER': 'grupoinc_intracoe',
-        'PASSWORD': '1nco32024$',
-        'HOST': '173.254.29.38',
-        'PORT': '3306',  # Puerto predeterminado de MySQL
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'ssl': {
-                'ca': 'grupoincoe-cert.crt'
-            },
-        },
-    }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'intracoe_db',
+        'USER': 'intracoe',
+        'PASSWORD': 'intracoe',
+        'HOST': '192.168.2.58',  # Dirección IP del servidor PostgreSQL
+        'PORT': '5432',           # Puerto predeterminado de PostgreSQL
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
