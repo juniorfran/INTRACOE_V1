@@ -97,15 +97,14 @@
         }
 
         .firma {
-            position: fixed;
-            bottom: 20px;
+            position: relative;
+            bottom: 10px;
             right: 20px;
-            width: 150px; /* Ajusta el tamaño según sea necesario */
+            width: 250px; /* Ajusta el tamaño según sea necesario */
             opacity: 0.8; /* Ajusta la opacidad si deseas un efecto más tenue */
-            z-index: 10; /* Asegura que esté por encima de otros elementos */
+            
         }
         
-
     </style>
 </head>
 <body>
@@ -164,18 +163,21 @@
             </tr>
         </table>
     </div>
-
-    <strong><h3 class="thank-you">Total liquido a recibir:</h3></strong> <h1 class="thank-you">${{  boleta.liquido_recibir  }}</h1>
-
-
-
-    <!-- Agradecimiento -->
-    <p class="thank-you">Gracias por su esfuerzo y dedicación.</p>
-
-    <!-- Imagen de la firma en la esquina inferior derecha -->
-    <img src="https://github.com/juniorfran/INTRACOE_V1/blob/main/static/img/Firma-Recursos-Humanos.png?raw=true" alt="Firma" class="firma">
-    
     
 
-</body>
+    <!-- Tabla con la firma y el total a recibir -->
+    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: none;">
+        <tr>
+            <td style="text-align: center; border: none;">
+                <img src="media/firma.png" alt="Firma" class="firma" style="max-width: 100%; height: auto;">
+            </td>
+            <td style="text-align: center; border: none;">
+                <strong><h3>Total líquido a recibir:</h3></strong>
+                <h1>${{ boleta.liquido_recibir }}</h1>
+            </td>
+        </tr>
+    </table>
+    
+
+    </body>
 </html>
