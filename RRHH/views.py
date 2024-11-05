@@ -10,13 +10,16 @@ import openpyxl
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 # Listar Departamentos
+@login_required
 def departamento_list(request):
     departamentos = Departamentos.objects.all()
     return render(request, 'departamentos/departamentos_list.html', {'departamentos': departamentos})
 
 # Crear Departamento
+@login_required
 def departamento_create(request):
     if request.method == 'POST':
         form = DepartamentoForm(request.POST)
@@ -28,6 +31,7 @@ def departamento_create(request):
     return render(request, 'departamentos/departamento_form.html', {'form': form})
 
 # Editar Departamento
+@login_required
 def departamento_update(request, pk):
     departamento = get_object_or_404(Departamentos, pk=pk)
     if request.method == 'POST':
@@ -40,6 +44,7 @@ def departamento_update(request, pk):
     return render(request, 'departamentos/departamento_form.html', {'form': form})
 
 # Eliminar Departamento
+@login_required
 def departamento_delete(request, pk):
     departamento = get_object_or_404(Departamentos, pk=pk)
     if request.method == 'POST':
@@ -50,11 +55,13 @@ def departamento_delete(request, pk):
 #######################################################################################################333
 
 # Listar Cargos
+@login_required
 def cargo_list(request):
     cargos = Cargo.objects.all()
     return render(request, 'cargos/cargos_list.html', {'cargos': cargos})
 
 # Crear Cargo
+@login_required
 def cargo_create(request):
     if request.method == 'POST':
         form = CargoForm(request.POST)
@@ -66,6 +73,7 @@ def cargo_create(request):
     return render(request, 'cargos/cargo_form.html', {'form': form})
 
 # Editar Cargo
+@login_required
 def cargo_update(request, pk):
     cargo = get_object_or_404(Cargo, pk=pk)
     if request.method == 'POST':
@@ -78,6 +86,7 @@ def cargo_update(request, pk):
     return render(request, 'cargos/cargo_form.html', {'form': form})
 
 # Eliminar Cargo
+@login_required
 def cargo_delete(request, pk):
     cargo = get_object_or_404(Cargo, pk=pk)
     if request.method == 'POST':
@@ -90,6 +99,7 @@ def cargo_delete(request, pk):
 #######################################################################################################333
 
 # Listar Boletas de pago con búsqueda por código de empleado
+@login_required
 def boleta_pago_list(request):
     # Obtener parámetros de búsqueda
     codigo_empleado = request.GET.get('codigo_empleado', '')
@@ -117,6 +127,7 @@ def boleta_pago_list(request):
 
 
 # Crear Boleta de pago
+@login_required
 def boleta_pago_create(request):
     if request.method == 'POST':
         form = BoletaPagoForm(request.POST)
@@ -128,6 +139,7 @@ def boleta_pago_create(request):
     return render(request, 'boletas/boleta_pago_form.html', {'form': form})
 
 # Editar Boleta de pago
+@login_required
 def boleta_pago_update(request, pk):
     boleta = get_object_or_404(Boleta_pago, pk=pk)
     if request.method == 'POST':
@@ -140,6 +152,7 @@ def boleta_pago_update(request, pk):
     return render(request, 'boletas/boleta_pago_form.html', {'form': form})
 
 # Eliminar Boleta de pago
+@login_required
 def boleta_pago_delete(request, pk):
     boleta = get_object_or_404(Boleta_pago, pk=pk)
     if request.method == 'POST':
@@ -150,11 +163,13 @@ def boleta_pago_delete(request, pk):
 #######################################################################################################333
 
 # Listar Empleados
+@login_required
 def empleado_list(request):
     empleados = Empleados.objects.all()
     return render(request, 'empleados/empleados_list.html', {'empleados': empleados})
 
 # Crear Empleado
+@login_required
 def empleado_create(request):
     if request.method == 'POST':
         form = EmpleadoForm(request.POST)
@@ -166,6 +181,7 @@ def empleado_create(request):
     return render(request, 'empleados/empleado_form.html', {'form': form})
 
 # Editar Empleado
+@login_required
 def empleado_update(request, pk):
     empleado = get_object_or_404(Empleados, pk=pk)
     if request.method == 'POST':
@@ -178,6 +194,7 @@ def empleado_update(request, pk):
     return render(request, 'empleados/empleado_form.html', {'form': form})
 
 # Eliminar Empleado
+@login_required
 def empleado_delete(request, pk):
     empleado = get_object_or_404(Empleados, pk=pk)
     if request.method == 'POST':
@@ -185,6 +202,7 @@ def empleado_delete(request, pk):
         return redirect('empleado_list')
     return render(request, 'empleados/empleado_confirm_delete.html', {'empleado': empleado})
 
+@login_required
 def cargar_empleados_desde_xlsx(request):
     if request.method == 'POST':
         form = UploadFileFormEmpleados(request.POST, request.FILES)
@@ -228,7 +246,7 @@ def cargar_empleados_desde_xlsx(request):
     return render(request, 'cargar_empleados.html', {'form': form})
 
 ###############################################################################################
-
+@login_required
 def cargar_boletas(request):
     if request.method == "POST":
         form = UploadFileForm(request.POST, request.FILES)
@@ -281,6 +299,7 @@ from xhtml2pdf import pisa
 from io import BytesIO
 from django.utils import timezone
 
+@login_required
 def enviar_boletas_masivo(request):
     # Obtener la fecha de pago más reciente
     boletas_recientes = Boleta_pago.objects.order_by('-fecha_pago').first()
@@ -338,6 +357,7 @@ def enviar_boletas_masivo(request):
 
 ###############################################################################################
 
+@login_required
 def enviar_boleta_individual(request, empleado_id):
     empleado = get_object_or_404(Empleados, id=empleado_id)
     boleta = Boleta_pago.objects.filter(empleado=empleado).order_by('-fecha_pago').first()  # Última boleta de pago
@@ -389,6 +409,7 @@ def enviar_boleta_individual(request, empleado_id):
 
 ########################################################################################################################################3
 
+@login_required
 def acciones_boleta_pago_list(request):
     # Obtener parámetros de búsqueda
     codigo_empleado = request.GET.get('codigo_empleado', '')
@@ -414,6 +435,7 @@ def acciones_boleta_pago_list(request):
         'fecha_pago': fecha_pago,
     })
 
+@login_required
 def acciones_enviar_boletas_masivo(request):
     # Obtener IDs de las boletas seleccionadas
     boletas_ids = request.POST.getlist('boleta_ids')

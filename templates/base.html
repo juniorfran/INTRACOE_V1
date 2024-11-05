@@ -29,29 +29,28 @@
             <h1><a href="#" class="logo">INTRACOE</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="collapse" href="#collapseConsultas1" role="button" aria-expanded="false" aria-controls="collapseConsultas">
+                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseConsultas1" role="button" aria-expanded="false" aria-controls="collapseConsultas">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <span class="fa fa-info"></span> Consultas
                     </a>
                     <div class="collapse" id="collapseConsultas">
-                    <ul class="nav-item">
-                        {% include "opciones_menu/consultas.html" %}
-                    </ul>
+                        <ul class="nav-item">
+                            {% include "opciones_menu/consultas.html" %}
+                        </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="collapse" href="#collapseCajas" role="button" aria-expanded="false" aria-controls="collapseCajas">
+                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseCajas" role="button" aria-expanded="false" aria-controls="collapseCajas">
                         <span class="fa fa-suitcase"></span> RRHH
                     </a>
                     <div class="collapse" id="collapseCajas">
                         <ul class="nav-item">
                             {% include "opciones_menu/rrhh.html" %}
                         </ul>
-                        
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="collapse" href="#collapseProductos1" role="button" aria-expanded="false" aria-controls="collapseProductos">
+                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseProductos1" role="button" aria-expanded="false" aria-controls="collapseProductos">
                         <span class="fa fa-product-hunt"></span> CONTABILIDAD
                     </a>
                     <div class="collapse" id="collapseProductos">
@@ -61,7 +60,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="collapse" href="#collapseVentas1" role="button" aria-expanded="false" aria-controls="collapseVentas">
+                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseVentas1" role="button" aria-expanded="false" aria-controls="collapseVentas">
                         <span class="fa fa-shopping-basket"></span> INFORMATICA
                     </a>
                     <div class="collapse" id="collapseVentas">
@@ -109,7 +108,10 @@
                                     <a class="dropdown-item" href="#">Mi perfil</a>
                                     <div class="dropdown-divider"></div>
                                     <!-- Botón para cerrar sesión -->
-                                    <a class="dropdown-item" href="#">Cerrar sesión</a>
+                                    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                                        {% csrf_token %}
+                                        <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                    </form>
                                 </div>
                             </li>
                         </ul>
