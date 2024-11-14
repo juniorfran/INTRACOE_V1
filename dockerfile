@@ -18,6 +18,8 @@ RUN apt-get update && \
     libcairo2-dev \
     libgdk-pixbuf2.0-0 \
     libgdk-pixbuf2.0-dev \
+    unixodbc \
+    unixodbc-dev \
     --no-install-recommends gcc pkg-config libmariadb-dev python3-dev libpq-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
