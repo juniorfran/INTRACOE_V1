@@ -11,6 +11,7 @@ COPY requirements.txt .
 # Instalar las dependencias necesarias para mysqlclient, pkg-config y SQL Server
 RUN apt-get update && \
     apt-get install -y curl apt-transport-https \
+    gnupg \
     libpango-1.0-0 \
     libpangoft2-1.0-0 \
     libpangocairo-1.0-0 \
