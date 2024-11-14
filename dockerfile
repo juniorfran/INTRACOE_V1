@@ -10,7 +10,7 @@ COPY requirements.txt .
 
 # Instalar las dependencias necesarias para mysqlclient, pkg-config y SQL Server
 RUN apt-get update && \
-    apt-get install -y curl apt-transport-https && \
+    apt-get install -y curl apt-transport-https \
     libpango-1.0-0 \
     libpangoft2-1.0-0 \
     libpangocairo-1.0-0 \
@@ -26,14 +26,13 @@ RUN apt-get update && \
     python3-dev \
     libpq-dev \
     --no-install-recommends && \
-    # Instalar el controlador ODBC de SQL Server 17
     curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - && \
     curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list && \
     apt-get update && \
     ACCEPT_EULA=Y apt-get install -y msodbcsql17 && \
-    # Limpieza de archivos temporales para reducir el tamaño del contenedor
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
 
 # Instalar los requisitos de Python
 RUN pip install --upgrade pip setuptools && \
