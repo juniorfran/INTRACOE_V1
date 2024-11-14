@@ -50,20 +50,20 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseProductos1" role="button" aria-expanded="false" aria-controls="collapseProductos">
+                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseContabilidad" role="button" aria-expanded="false" aria-controls="collapseProductos">
                         <span class="fa fa-product-hunt"></span> CONTABILIDAD
                     </a>
-                    <div class="collapse" id="collapseProductos">
+                    <div class="collapse" id="collapseContabilidad">
                         <ul class="nav-item">
                             {% include "opciones_menu/contabilidad.html" %}
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseVentas1" role="button" aria-expanded="false" aria-controls="collapseVentas">
+                    <a class="nav-link active {% if not user.is_authenticated %}disabled{% endif %}" data-bs-toggle="collapse" href="#collapseIT" role="button" aria-expanded="false" aria-controls="collapseVentas">
                         <span class="fa fa-shopping-basket"></span> INFORMATICA
                     </a>
-                    <div class="collapse" id="collapseVentas">
+                    <div class="collapse" id="collapseIT">
                         <ul class="nav-item">
                             {% include "opciones_menu/informatica.html" %}
                         </ul>

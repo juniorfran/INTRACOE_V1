@@ -53,6 +53,15 @@ EMAIL_USE_TLS = False  # Deshabilitado el TLS
 EMAIL_HOST_USER = 'talentohumano@grupoincoe.com'
 EMAIL_HOST_PASSWORD = '*J{jLiwCF)E?'
 
+
+EMAIL_BACKEND_QUEDAN = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_QUEDAN = 'mail.grupoincoe.com'
+EMAIL_PORT_QUEDAN = 465
+EMAIL_USE_SSL_QUEDAN = True  # Cambiado de TLS a SSL
+EMAIL_USE_TLS_QUEDAN = False  # Deshabilitado el TLS
+EMAIL_HOST_USER_QUEDAN = 'facturacion@grupoincoe.com'
+EMAIL_HOST_PASSWORD_QUEDAN = 'F4ctur4c10n.23'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -63,6 +72,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'RRHH',
+    'FE',
+    'CONTABILIDAD',
+    'INFORMATICA',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +95,10 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates/includes'),
+            os.path.join(BASE_DIR, 'FE/templates'),
+            os.path.join(BASE_DIR, 'RRHH/templates'),
+            os.path.join(BASE_DIR, 'CONTABILIDAD/templates'),
+            os.path.join(BASE_DIR, 'INFORMATICA/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -116,6 +132,19 @@ DATABASES = {
         'HOST': '192.168.2.58',  # Dirección IP del servidor PostgreSQL
         'PORT': '5432',           # Puerto predeterminado de PostgreSQL
     },
+
+    'brilo_sqlserver': {
+        'ENGINE': 'mssql',  # Motor de base de datos para SQL Server
+        'NAME': 'olComun',  # Reemplaza con el nombre de la base de datos específica de Brilo
+        'USER': 'olimporeader',
+        'PASSWORD': 'olimporeader',
+        'HOST': 'tcp:200.31.164.67',
+        'PORT': '2034',  # Usualmente vacío para SQL Server, o utiliza 1433 si es requerido
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',  # Necesitas tener instalado este controlador en el servidor Django
+            'extra_params': 'TrustServerCertificate=yes;'  # Opcional, según configuración de seguridad
+        },
+    }
 }
 
 LOGOUT_REDIRECT_URL = '/login/'  # URL a la que se redirige después del logout
