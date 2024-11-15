@@ -43,6 +43,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://0.0.0.0:8000/',
     'http://172.17.0.2/',
     'http://0.0.0.0/',
+    'http://172.17.0.2:8000/',
+    'http://0.0.0.0:8000/',
     ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
