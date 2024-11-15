@@ -162,7 +162,7 @@ def enviar_quedan(request, mqdn_id):
         quedan = cursor.fetchone()
         
         # Consultar proveedor
-        cursor.execute("SELECT prvNombre, prvEmail FROM olComun.dbo.Proveedores WHERE prvId = %s", [quedan[4]])
+        cursor.execute("SELECT prvNombre, prvEmailRepLegal FROM olComun.dbo.Proveedores WHERE prvId = %s", [quedan[4]])
         proveedor = cursor.fetchone()
 
         # Consultar detalles del quedan
@@ -281,7 +281,7 @@ def enviar_quedan_hoy(request):
 
         for quedan in quedans:
             # Consultar proveedor
-            cursor.execute("SELECT prvNombre, prvEmail FROM olComun.dbo.Proveedores WHERE prvId = %s", [quedan[5]])
+            cursor.execute("SELECT prvNombre, prvEmailRepLegal FROM olComun.dbo.Proveedores WHERE prvId = %s", [quedan[5]])
             proveedor = cursor.fetchone()
 
             # Consultar detalles del quedan

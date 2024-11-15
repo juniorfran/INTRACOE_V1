@@ -138,7 +138,7 @@ DATABASES = {
         'NAME': 'olComun',  # Reemplaza con el nombre de la base de datos específica de Brilo
         'USER': 'olimporeader',
         'PASSWORD': 'olimporeader',
-        'HOST': 'tcp:200.31.164.67',
+        'HOST': '200.31.164.67',
         'PORT': '2034',  # Usualmente vacío para SQL Server, o utiliza 1433 si es requerido
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
