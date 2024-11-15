@@ -34,7 +34,7 @@ CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 
 CSRF_COOKIE_SAMESITE = 'Lax'  # 'Strict', 'Lax', or 'None'
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
     'https://intracoe.incoe.cloud',
     'http://intracoe.incoe.cloud',
@@ -48,6 +48,8 @@ CSRF_TRUSTED_ORIGINS = [
     'http://172.19.0.2:8000/',
     'http://0.0.0.0:8000/',
     'http://192.168.2.58:8000/',
+    'http://192.168.2.58/',
+    'https://192.168.2.58/',
     ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
