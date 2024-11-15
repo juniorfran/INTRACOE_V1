@@ -31,21 +31,64 @@ ALLOWED_HOSTS = ['*']
 # Security & HTTPS settings
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
 SECURE_SSL_REDIRECT = False
 
 CSRF_COOKIE_SAMESITE = 'None'  # 'Strict', 'Lax', or 'None'
 CORS_ALLOW_ALL_ORIGINS = True
+
+# O usar una lista específica de orígenes permitidos
+# CORS_ALLOWED_ORIGINS = [
+#     'http://127.0.0.1:8000',
+#     'http://localhost:8000',
+# ]
+
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',
+]
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'x-csrftoken',
+]
+
 CSRF_TRUSTED_ORIGINS = [
     'https://intracoe.incoe.cloud',
     'http://intracoe.incoe.cloud',
     'https://www.intracoe.incoe.cloud',
     'http://www.intracoe.incoe.cloud',
     'http://127.0.0.1:8000',
-    'http://127.0.0.1/',
-    'http://0.0.0.0:8000/',
-    'http://0.0.0.0/',
-    'http://192.168.2.58:8000/',
-    'http://192.168.2.58/',
+    'http://127.0.0.1',
+    'http://0.0.0.0:8000',
+    'http://0.0.0.0',
+    'http://192.168.2.58:8000',
+    'http://192.168.2.58',
+
+    'http://www.0.0.0.0:8000',
+    'http://www.0.0.0.0',
+    'http://www.192.168.2.58:8000',
+    'http://www.192.168.2.58',
+
+    'http://www.0.0.0.0:8000/',
+    'http://www.0.0.0.0/',
+    'http://www.192.168.2.58:8000/',
+    'http://www.192.168.2.58/',
+
+    'https://www.0.0.0.0:8000',
+    'https://www.0.0.0.0',
+    'https://www.192.168.2.58:8000',
+    'https://www.192.168.2.58',
+
+    'https://www.0.0.0.0:8000/',
+    'https://www.0.0.0.0/',
+    'https://www.192.168.2.58:8000/',
+    'https://www.192.168.2.58/',
     ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
