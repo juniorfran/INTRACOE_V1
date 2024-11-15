@@ -29,8 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Security & HTTPS settings
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 SECURE_SSL_REDIRECT = False
 
@@ -69,27 +69,12 @@ CSRF_TRUSTED_ORIGINS = [
     'http://0.0.0.0',
     'http://192.168.2.58:8000',
     'http://192.168.2.58',
-
-    'http://www.0.0.0.0:8000',
-    'http://www.0.0.0.0',
-    'http://www.192.168.2.58:8000',
-    'http://www.192.168.2.58',
-
-    'http://www.0.0.0.0:8000/',
-    'http://www.0.0.0.0/',
-    'http://www.192.168.2.58:8000/',
-    'http://www.192.168.2.58/',
-
-    'https://www.0.0.0.0:8000',
-    'https://www.0.0.0.0',
-    'https://www.192.168.2.58:8000',
-    'https://www.192.168.2.58',
-
-    'https://www.0.0.0.0:8000/',
-    'https://www.0.0.0.0/',
-    'https://www.192.168.2.58:8000/',
-    'https://www.192.168.2.58/',
-    ]
+    'https://intracoe.incoe.cloud',
+    'https://www.intracoe.incoe.cloud',
+    'https://127.0.0.1:8000',
+    'https://0.0.0.0:8000',
+    'https://192.168.2.58:8000',
+]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail.grupoincoe.com'
