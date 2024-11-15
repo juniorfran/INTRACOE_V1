@@ -65,6 +65,8 @@ CSRF_TRUSTED_ORIGINS = [
     'http://www.intracoe.incoe.cloud',
     'http://127.0.0.1:8000',
     'http://127.0.0.1',
+    'http://localhost:8000',
+    'http://localhost',
     'http://0.0.0.0:8000',
     'http://0.0.0.0',
     'http://192.168.2.58:8000',
