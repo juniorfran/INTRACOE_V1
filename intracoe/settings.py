@@ -141,9 +141,10 @@ DATABASES = {
         'HOST': 'tcp:200.31.164.67',
         'PORT': '2034',  # Usualmente vacío para SQL Server, o utiliza 1433 si es requerido
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',  # Necesitas tener instalado este controlador en el servidor Django
-            'extra_params': 'TrustServerCertificate=yes;'  # Opcional, según configuración de seguridad
-        },
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'extra_params': 'TrustServerCertificate=yes;',
+            'connection_timeout': 60,  # Ajusta el tiempo de espera
+        }
     }
 }
 
