@@ -1,5 +1,5 @@
 # Cambiar a Python 3.10-slim-bullseye (o Python 3.11)
-FROM python:3.10-slim-bullseye
+FROM python:3.10-bullseye
 # O usa FROM python:3.11-slim-bullseye para Python 3.11
 
 # Establecer el directorio de trabajo
@@ -15,6 +15,7 @@ RUN apt-get update && \
     libpango-1.0-0 \
     libpangoft2-1.0-0 \
     libpangocairo-1.0-0 \
+    libodbc1 \
     libcairo2 \
     libcairo2-dev \
     libgdk-pixbuf2.0-0 \

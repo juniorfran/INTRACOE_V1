@@ -142,8 +142,8 @@ DATABASES = {
         'PORT': '2034',  # Usar puerto estándar si es posible
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
-            'extra_params': 'TrustServerCertificate=no;',
-            'connection_timeout': 60,
+            'extra_params': 'TrustServerCertificate=yes;',
+            'connection_timeout': 250,
         },
     }
 }
