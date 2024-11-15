@@ -134,17 +134,17 @@ DATABASES = {
     },
 
     'brilo_sqlserver': {
-        'ENGINE': 'sql_server.pyodbc',  # Motor de base de datos para SQL Server
-        'NAME': 'olComun',  # Reemplaza con el nombre de la base de datos específica de Brilo
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'olComun',
         'USER': 'olimporeader',
         'PASSWORD': 'olimporeader',
         'HOST': '200.31.164.67',
-        'PORT': '2034',  # Usualmente vacío para SQL Server, o utiliza 1433 si es requerido
+        'PORT': '2034',  # Usar puerto estándar si es posible
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
-            'extra_params': 'TrustServerCertificate=yes;',
-            'connection_timeout': 60,  # Ajusta el tiempo de espera
-        }
+            'extra_params': 'TrustServerCertificate=no;',
+            'connection_timeout': 60,
+        },
     }
 }
 
