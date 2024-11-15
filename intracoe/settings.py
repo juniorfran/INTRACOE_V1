@@ -33,6 +33,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = False
 
+CSRF_COOKIE_SAMESITE = 'Lax'  # 'Strict', 'Lax', or 'None'
 CORS_ALLOW_ALL_ORIGINS = False
 CSRF_TRUSTED_ORIGINS = [
     'https://intracoe.incoe.cloud',
