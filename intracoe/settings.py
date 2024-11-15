@@ -134,7 +134,7 @@ DATABASES = {
     },
 
     'brilo_sqlserver': {
-        'ENGINE': 'mssql',  # Motor de base de datos para SQL Server
+        'ENGINE': 'sql_server.pyodbc',  # Motor de base de datos para SQL Server
         'NAME': 'olComun',  # Reemplaza con el nombre de la base de datos específica de Brilo
         'USER': 'olimporeader',
         'PASSWORD': 'olimporeader',
